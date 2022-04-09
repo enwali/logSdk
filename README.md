@@ -16,7 +16,7 @@
 
 dependencies {
 	...
-	implementation 'org.jetbrains.kotlin:kotlin-reflect:1.6.10'
+implementation 'org.jetbrains.kotlin:kotlin-reflect:1.6.10'
     implementation(name: 'LeeLenLogSDK_V1.0_20220409', ext: 'aar')
 }
 
@@ -48,16 +48,18 @@ open class MyApplication : Application() {
 startActivity(Intent(this, LogExtSettingActivity::class.java))
 ```
 
-获取当前缓存的配置信息
+获取当前缓存的配置信息,初始化网络请求工具时使用缓存的服务器地址
 
 ```
-        val config = SpModel.config
-        //当前是否开启了调试日志
-        val useLogcat = config?.useLogcat ?: false
-        //当前是否开启了保存日志到文件
-        val saveToFile = config?.saveToFile ?: false
-        //Http服务器地址
-        val baseUrl = RELEASE_BASE_URL
-        //Mqqt服务器地址
-        val mqttUrl = RELEASE_MQTT_HOST
+val config = SpModel.config
+
+//当前是否开启了调试日志
+val useLogcat = config?.useLogcat ?: false
+//当前是否开启了保存日志到文件
+val saveToFile = config?.saveToFile ?: false
+
+//Http服务器地址
+val baseUrl = RELEASE_BASE_URL
+//Mqqt服务器地址
+val mqttUrl = RELEASE_MQTT_HOST
 ```
