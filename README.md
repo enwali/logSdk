@@ -15,8 +15,7 @@
 ```kotlin
 
 dependencies {
-	...
-implementation 'org.jetbrains.kotlin:kotlin-reflect:1.6.10'
+	implementation 'org.jetbrains.kotlin:kotlin-reflect:1.6.10'
     implementation(name: 'LeeLenLogSDK_V1.0_20220409', ext: 'aar')
 }
 
@@ -67,10 +66,10 @@ val mqttUrl = RELEASE_MQTT_HOST
 
 
 ### 使用其他log
-SDK集成了log4j，无需集成其他log工具。如果有使用其他log工具的需求，可以通过 SpModel.config 获取用户是否设置了开启调试日志及保存日志到文件。分享日志文件需要将日志文件保存在 context.getExternalFilesDir(Environment.DIRECTORY_DOCUMENTS) 文件夹下
+SDK集成了log4j，无需集成其他log工具。如果有使用其他log工具的需求，可以通过 SpModel.config 获取用户是否设置了开启调试日志及保存日志到文件。分享日志文件需要将日志文件保存在context.getExternalFilesDir(Environment.DIRECTORY_DOCUMENTS) 文件夹下
 ```
-    private fun getFileName(context: Context): String {
-        var fileDocuments: File? = context.getExternalFilesDir(Environment.DIRECTORY_DOCUMENTS)
-        return fileDocuments.toString()
-    }
+private fun getFileName(context: Context): String {
+    var fileDocuments: File? = context.getExternalFilesDir(Environment.DIRECTORY_DOCUMENTS)
+    return fileDocuments.toString()
+}
 ```
