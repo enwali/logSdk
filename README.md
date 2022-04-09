@@ -13,7 +13,11 @@
 添加 aar 到项目
 
 ```kotlin
-$closure = function () use($name) {
-  return $name;
-}
+
+	dependencies {
+		...
+		implementation 'org.jetbrains.kotlin:kotlin-reflect:1.6.10'
+	    implementation(name: 'LeeLenLogSDK_V1.0_20220409', ext: 'aar')
+	}
+
 ```
