@@ -14,10 +14,50 @@
 
 ```kotlin
 
-	dependencies {
-		...
-		implementation 'org.jetbrains.kotlin:kotlin-reflect:1.6.10'
-	    implementation(name: 'LeeLenLogSDK_V1.0_20220409', ext: 'aar')
-	}
+dependencies {
+	...
+	implementation 'org.jetbrains.kotlin:kotlin-reflect:1.6.10'
+    implementation(name: 'LeeLenLogSDK_V1.0_20220409', ext: 'aar')
+}
 
+```
+
+在Applation初始化SDK
+
+```
+open class MyApplication : Application() {
+
+    override fun onCreate() {
+        super.onCreate()
+
+        //初始化日志
+        LogHelper.initLog(this)
+
+        //设置默认服务器地址，可添加备选服务器列表 List<ServerBean>
+        ServerHelper.setDefaultServer(
+            "http://iot.leelen.com",
+            "ssl://iot.leelen.com:8883"
+        )
+    }
+}
+```
+
+启动设置配置页面
+
+```
+startActivity(Intent(this, LogExtSettingActivity::class.java))
+```
+
+获取当前缓存的配置信息
+
+```
+        val config = SpModel.config
+        //当前是否开启了调试日志
+        val useLogcat = config?.useLogcat ?: false
+        //当前是否开启了保存日志到文件
+        val saveToFile = config?.saveToFile ?: false
+        //Http服务器地址
+        val baseUrl = RELEASE_BASE_URL
+        //Mqqt服务器地址
+        val mqttUrl = RELEASE_MQTT_HOST
 ```
