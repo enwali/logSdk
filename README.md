@@ -6,7 +6,7 @@
 
 <img src="https://raw.githubusercontent.com/enwali/logSdk/main/image/Screenshot_20220409_143212.png"  width=30%  /> <img src="https://raw.githubusercontent.com/enwali/logSdk/main/image/Screenshot_20220409_143141.png"  width=30%  /> <img src="https://raw.githubusercontent.com/enwali/logSdk/main/image/Screenshot_20220409_143303.png" width=30%  />
 
-## 下载
+### 下载
 
 由于还未将项目上传到maven，需要<a  href ="https://github.com/enwali/logSdk/raw/main/DemoApp/libs/LeeLenLogSDK_V1.0_20220409.aar">下载aar包</a> ，添加到项目 
 
@@ -22,6 +22,7 @@ implementation 'org.jetbrains.kotlin:kotlin-reflect:1.6.10'
 
 ```
 
+### 使用
 在Applation初始化SDK
 
 ```
@@ -62,4 +63,14 @@ val saveToFile = config?.saveToFile ?: false
 val baseUrl = RELEASE_BASE_URL
 //Mqqt服务器地址
 val mqttUrl = RELEASE_MQTT_HOST
+```
+
+
+### 使用其他log
+SDK集成了log4j，无需集成其他log工具。如果有使用其他log工具的需求，可以通过 SpModel.config 获取用户是否设置了开启调试日志及保存日志到文件。分享日志文件需要将日志文件保存在 context.getExternalFilesDir(Environment.DIRECTORY_DOCUMENTS) 文件夹下
+```
+    private fun getFileName(context: Context): String {
+        var fileDocuments: File? = context.getExternalFilesDir(Environment.DIRECTORY_DOCUMENTS)
+        return fileDocuments.toString()
+    }
 ```
