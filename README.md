@@ -12,8 +12,8 @@
 
 添加 aar 到项目
 
-```php
+```kotlin
 $closure = function () use($name) {
   return $name;
 }
-` ``
+```
