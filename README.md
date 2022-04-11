@@ -8,7 +8,7 @@
 
 ### 下载
 
-由于还未将项目上传到maven，需要<a  href ="https://github.com/enwali/logSdk/raw/main/DemoApp/libs/LeeLenLogSDK_V1.0_20220409.aar">下载aar包</a> ，添加到项目 
+由于还未将项目上传到maven，需要<a  href ="https://github.com/enwali/logSdk/raw/main/DemoApp/libs/LeeLenLogSDK_V1.1_20220411.aar">下载aar包</a> ，添加到项目 
 
 添加 aar 到项目
 
