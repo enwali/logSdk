@@ -15,13 +15,21 @@
 ```kotlin
 
 dependencies {
-    implementation 'org.jetbrains.kotlin:kotlin-reflect:1.6.10'
-    implementation(name: 'LeeLenLogSDK_V1.0_20220409', ext: 'aar')
+    implementation 'com.beust:klaxon:5.5'
+    implementation(name: 'LeeLenLogSDK_V1.1_20220411', ext: 'aar')
 }
 
 ```
+## 添加混淆
+```
+#logSdk
+-keep class com.beust.klaxon.** {*;}
+-keep class com.beust.klaxon.internal.** {*;}
+-keep class com.leelen.leelenloglib.bean.** {*;}
+```
 
 ### 使用
+
 在Applation初始化SDK
 
 ```
@@ -47,6 +55,11 @@ open class MyApplication : Application() {
 ```
 startActivity(Intent(this, LogExtSettingActivity::class.java))
 ```
+打印日志
+
+```
+LogUtils.i(TAG, "进入配置页面")
+```
 
 获取当前缓存的配置信息,初始化网络请求工具时使用缓存的服务器地址
 
@@ -68,6 +81,7 @@ val mqttUrl = RELEASE_MQTT_HOST
 ### 使用其他日志库
 SDK集成了log4j，无需集成其他log工具。如果有使用其他log工具的需求，可以通过 SpModel.config 获取用户是否设置了开启调试日志及保存日志到文件。
 分享日志文件需要将日志文件保存在context.getExternalFilesDir(Environment.DIRECTORY_DOCUMENTS) 文件夹下
+
 ```
 private fun getFileName(context: Context): String {
     var fileDocuments: File? = context.getExternalFilesDir(Environment.DIRECTORY_DOCUMENTS)
