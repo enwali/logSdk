@@ -56,7 +56,7 @@ open class MyApplication : Application() {
 ```
 val intent = Intent(this, LogExtSettingActivity::class.java)
 //设置是否使用 服务器配置功能
-intent.putExtra(BUNDLE_SERVICE, false)
+intent.putExtra(BUNDLE_SERVICE, true)
 startActivity(intent)
 ```
 
