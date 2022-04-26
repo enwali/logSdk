@@ -2,13 +2,12 @@
 
 本 SDK 支持动态配置服务器、开启日志，分享日志功能
 
-
-
 <img src="https://raw.githubusercontent.com/enwali/logSdk/main/image/Screenshot_20220409_143212.png"  width=30%  /> <img src="https://raw.githubusercontent.com/enwali/logSdk/main/image/Screenshot_20220409_143141.png"  width=30%  /> <img src="https://raw.githubusercontent.com/enwali/logSdk/main/image/Screenshot_20220409_143303.png" width=30%  />
 
 ### 下载
 
-由于还未将项目上传到maven，需要<a  href ="https://github.com/enwali/logSdk/raw/main/DemoApp/libs/LeeLenLogSDK_V1.1_20220411.aar">下载aar包</a> ，添加到项目 
+由于还未将项目上传到maven，需要<a  href ="https://github.com/enwali/logSdk/raw/main/DemoApp/libs/LeeLenLogSDK_V1.2_20220426.aar">
+下载aar包</a> ，添加到项目
 
 添加 aar 到项目
 
@@ -20,7 +19,9 @@ dependencies {
 }
 
 ```
+
 ## 添加混淆
+
 ```
 #logSdk
 -keep class com.beust.klaxon.** {*;}
@@ -53,8 +54,12 @@ open class MyApplication : Application() {
 启动设置配置页面
 
 ```
-startActivity(Intent(this, LogExtSettingActivity::class.java))
+val intent = Intent(this, LogExtSettingActivity::class.java)
+//设置是否使用 服务器配置功能
+intent.putExtra(BUNDLE_SERVICE, false)
+startActivity(intent)
 ```
+
 打印日志
 
 ```
@@ -77,8 +82,8 @@ val baseUrl = RELEASE_BASE_URL
 val mqttUrl = RELEASE_MQTT_HOST
 ```
 
-
 ### 使用其他日志库
+
 SDK集成了log4j，无需集成其他log工具。如果有使用其他log工具的需求，可以通过 SpModel.config 获取用户是否设置了开启调试日志及保存日志到文件。
 分享日志文件需要将日志文件保存在context.getExternalFilesDir(Environment.DIRECTORY_DOCUMENTS) 文件夹下
 
