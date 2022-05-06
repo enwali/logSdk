@@ -27,6 +27,8 @@ dependencies {
 -keep class com.beust.klaxon.** {*;}
 -keep class com.beust.klaxon.internal.** {*;}
 -keep class com.leelen.leelenloglib.bean.** {*;}
+-keep class de.mindpipe.android.logging.log4j.** {*;}
+-keep class org.apache.log4j.** {*;}
 ```
 
 ### 使用
