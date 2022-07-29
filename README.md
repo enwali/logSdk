@@ -6,16 +6,18 @@
 
 ### 下载
 
-由于还未将项目上传到maven，需要<a  href ="https://github.com/enwali/logSdk/raw/main/DemoApp/libs/LeeLenLogSDK_V1.2_20220426.aar">
-下载aar包</a> ，添加到项目
-
 添加 aar 到项目
 
 ```kotlin
 
+maven {
+    allowInsecureProtocol true
+    url "http://192.168.1.89:8081/repository/android-snapshot/"
+}
+
 dependencies {
     implementation 'com.beust:klaxon:5.5'
-    implementation(name: 'LeeLenLogSDK_V1.1_20220411', ext: 'aar')
+    implementation 'com.leelen.android:leelencommonconfig:1.0.1-SNAPSHOT@aar'
 }
 
 ```

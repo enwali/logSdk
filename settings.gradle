@@ -4,6 +4,10 @@ dependencyResolutionManagement {
         google()
         mavenCentral()
         jcenter() // Warning: this repository is going to shut down soon
+        maven {
+            allowInsecureProtocol true
+            url "http://192.168.1.89:8081/repository/android-snapshot/"
+        }
     }
 }
 rootProject.name = "LeelenLogLibrary"

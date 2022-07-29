@@ -38,7 +38,9 @@ class MainActivity : AppCompatActivity() {
             val key = "868686"
             if (key == text) {
                 LogUtils.i(TAG, "进入配置页面")
-                startActivity(Intent(this, LogExtSettingActivity::class.java))
+                val intent = Intent(this, LogExtSettingActivity::class.java)
+                intent.putExtra(BUNDLE_SERVICE, true)
+                startActivity(intent)
             }
         }
 
